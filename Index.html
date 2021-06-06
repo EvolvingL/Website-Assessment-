@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Homepage </title>
+    <link href="mystyles.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+        
+        // checks whether client email & name has been set, function called on form submission
+        function emptyCheck() { 
+        var nameField = document.forms['myForm']['name'].value;
+        var emailField = document.forms['myForm']['email'].value;
+        if (nameField == ""  && emailField == "") {
+        alert("Please enter your name & email.");
+        return false;
+        }
+        if (nameField == "") {
+        alert("Please enter your name.");
+        return false;
+        }
+        if (emailField == "") {
+        alert("Please enter your email.");
+        return false;
+        } 
+        }
+    </script>
+  </head>
+  <body>
+    <h1> The Albert Theatre </h1>
+    <img src="Albert.jpg" width="700" alt="Albert Hall">
+    <h2> One of London's richest cultural venues, located in Kensington </h2>
+    
+    <!-- collects personal data from client & ensures it is in the correct format -->
+    <div id="orderform"> 
+       <form action="Perf.php" name=myForm method="post" onsubmit="emptyCheck()">
+         <p> Please Enter Name: <input name="name" type="text" onchange="
+                if(this.value.match(/\d/) != null || ) {
+                    alert(this.value + ' is not a valid name');
+                    this.value='';               
+                }" /></p>
+         <p> Please Enter Email: <input name="email" type="text" onchange="
+                if(this.value.indexOf('@') == -1) {
+                    alert(this.value + ' is not a valid email address.');
+                    this.value='';               
+                }" /></p>
+         <p><input type="submit" value="See Performances" onClick="return emptyCheck()" 
+         /></p>
+       </form>
+    </div>
+  </body>
+
+</html>
